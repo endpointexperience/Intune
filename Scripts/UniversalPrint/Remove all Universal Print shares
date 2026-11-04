@@ -1,0 +1,6 @@
+###Remove all Shares###
+Import-Module UniversalPrintManagement
+connect-uPService
+
+$shares = get-upPrinterShare
+foreach($share in $shares.results){remove-upprintershare -ShareID $share.id -confirm}
