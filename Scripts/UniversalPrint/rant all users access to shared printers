@@ -1,0 +1,6 @@
+###Grant all users access to shared printers###
+Import-Module UniversalPrintManagement
+connect-uPService
+ 
+$Shares = Get-UPPrinterShare
+foreach($share in $shares.results){Grant-UPAccess -ShareID $share.id -AllUsersAccess}
